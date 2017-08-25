@@ -75,7 +75,7 @@ public:
         consensus.BIP34Hash = uint256S("0x000000000000024b89b42a942fe0d9fea3bb44ab7bd1b19115dd6a759c0808b8");
         consensus.BIP65Height = 388381; // 000000000000000004c2b624ed5d7756c508d90fd0da2c7c679febfa6c4735f0
         consensus.BIP66Height = 363725; // 00000000000000000379eaa19dce8c9b722d46ae6a57c2f1a988119488b50931
-        consensus.powLimit = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.powLimit = uint256S("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 24 * 60 * 60; // one day
         consensus.nPowTargetSpacing = 30;
         consensus.fPowAllowMinDifficultyBlocks = false;
@@ -97,10 +97,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1510704000; // November 15th, 2017.
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000003f94d1ad391682fe038bf5");
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000000001");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00000000000000000013176bf8d7dfeab4e1db31dc93bc311b436e82ab226b90"); //453354
+        consensus.defaultAssumeValid = uint256S("0x4e505a9d0fd6ad182a7240c1a7cfbb201edb24e7052c57f693a1067e81fc24b0"); //genesis 
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -111,12 +111,12 @@ public:
         pchMessageStart[1] = 0xbe;
         pchMessageStart[2] = 0xb4;
         pchMessageStart[3] = 0xd9;
-        nDefaultPort = 8333;
+        nDefaultPort = 8222;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1503666000, 24, 0x1d00ffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1503666666, 24, 0x2100ffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0xcf6b524da07db01ff474f3d093de99aa6464459622b4f66a9be93290fa6aeaef"));
+        assert(consensus.hashGenesisBlock == uint256S("0x4e505a9d0fd6ad182a7240c1a7cfbb201edb24e7052c57f693a1067e81fc24b0"));
         assert(genesis.hashMerkleRoot == uint256S("0x62de12173b7a62313eeac8630406364c49d65c10419ffa3161eda64b881ce810"));
 
         // Note that of those with the service bits flag, most only support a subset of possible options
